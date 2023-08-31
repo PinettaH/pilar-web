@@ -5,42 +5,37 @@ import {
     Box,
     Button,
     Card,
+    CardHeader,
     CardContent,
-    Typography
+    Typography,
+    TextField,
+
 } from '@mui/material';
+import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
+    const contador = useSelector(state => state.todo.contador)
+    const cantidadTareas = useSelector(state => state.todo.cantidadTareas)
+
     return (
+
         <Grid container spacing={3}>
-            <Grid item sx={12}>
+            <Grid item xs={12}>
                 <Paper sx={{ p: 2 }}>
                     <Box>
                         Dashboard
-                        <Button variant='contained'>Hola</Button>
                     </Box>
+                </Paper>
+                <Paper sx={{ p: 2 }}>
                     <Card>
+                        <CardHeader title="Cantidad Tareas:" />
                         <CardContent>
-                            <Typography variant="h5" component="div">
-                                Tarjeta 1
-                            </Typography>
-                            <Link to="/todo">
-                                <Button variant='contained'>
-                                    Navegar a Todo
-                                </Button>
-                            </Link>
+                            <TextField disabled id="outlined-disabled" label={cantidadTareas} variant="outlined" />
                         </CardContent>
-                    </Card>
-                    <Card>
+                        <CardHeader title="Completadas:" />
                         <CardContent>
-                            <Typography variant="h5" component="div">
-                                Tarjeta 2
-                            </Typography>
-                            <Link to="/fetch-list">
-                                <Button variant='contained'>
-                                    Navegar a fetchList
-                                </Button>
-                            </Link>
+                            <TextField disabled id="outlined-disabled" label={contador} variant="outlined" />
                         </CardContent>
                     </Card>
                 </Paper>
