@@ -32,10 +32,6 @@ const Todo = () => {
         await setText(prev => '')
     }
 
-    const showTodoStorage = () => {
-        console.log(todos)
-    }
-
     const delTask = async (id) => {
         dispatch(deleteTodo({ id }))
     }
@@ -81,7 +77,6 @@ const Todo = () => {
                                     </Stack>
                                 ))
                             }
-                            <Button variant="contained" onClick={() => showTodoStorage()}>Mostrar</Button>
                         </CardContent>
                     </Card>
 
